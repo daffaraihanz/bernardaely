@@ -558,7 +558,7 @@
                     </div>
                     <div class="row copyright-wrapper">
                         <div class="col-12">
-                            <p>{{ $dataCopyright->copyrights }}</p>
+                            <p>{{ $dataProfiles[0]->copyright }}</p>
                         </div>
                     </div>
                 </section>

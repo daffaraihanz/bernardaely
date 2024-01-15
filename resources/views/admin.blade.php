@@ -27,12 +27,14 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <div class="works-wrapper d-flex justify-content-center">
-                            <div>
-                                <h4>Edit Showcases</h4>
-                                <p>Showcase image & name</p>
+                        <a href="/showcases">
+                            <div class="works-wrapper d-flex justify-content-center">
+                                <div>
+                                    <h4>Edit Showcases</h4>
+                                    <p>Showcase image & name</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-4 text-center">
                         <a href="/experiences">

@@ -73,8 +73,15 @@
                 <div class="row justify-content-start">
                     <div class="col-lg-1 col-md-1"></div>
                     <div class="col-lg-10 col-md-10">
-                        <h1>{{ $dataProfiles[0]->headline }}</h1>
-                        <div class="d-flex align-items-center mt-4 profil-wrapper">
+                        <div class="d-flex quote-wrapper">
+                            <h1 class="first-quote me-2">"</h1>
+                            <h1 class="quote-h1-wrapper">
+                                {{ $dataProfiles[0]->headline }}
+                                <span>"</span>
+                            </h1>
+                        </div>
+                        <div class="d-flex mt-4 profil-wrapper">
+                            <h2 class="first-quote-opacity me-2">"</h2>
                             <img class="me-3 img-fluid image-profile"
                                 src="{{ asset('storage/' . $dataProfiles[0]->image) }}" alt="profile image">
                             <div>
@@ -84,6 +91,14 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="container-fluid">
+                    <div class="row justify-content-start">
+                        <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10">
+
+                        </div>
+                    </div>
+                </div> --}}
             </div>
         </section>
         <section class="works">
@@ -109,40 +124,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 text-center">
-                        <img class="img-fluid" width="100%" height="100%" src="{{ asset('images/dummy.png') }}"
-                            alt="logo">
-                    </div>
+                    @foreach ($dataShowcases as $data)
+                        <div class="col-lg-3 col-md-6 mb-4 works-wrapper">
+                            <div class="image-frame">
+                                <img class="me-3 img-fluid main-image" src="{{ asset('storage/' . $data->images) }}"
+                                    alt="profile image">
+                            </div>
+                            <h4>{{ $data->names }}</h4>
+                            <h5>{{ $data->roles }}</h5>
+                            <div class="d-flex align-items-center">
+                                <p>Powered by</p>
+                                <img class="me-3 img-fluid" src="{{ asset('storage/' . $data->powers) }}"
+                                    alt="profile image">
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -155,16 +151,8 @@
                 <div class="row">
                     <div class="col-lg-1 col-md-1"></div>
                     <div class="col-lg-7 col-md-11 col-11">
-                        <h2>"Good design is <span class="span1">noticed</span>. great design goes <span class="span2">
-                                unnoticed</span>.”</h2>
-                        <p class="mt-2">- Design Foundations</p>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 col-md-10 col-12">
-                        <hr>
+                        <h2>Through strategic digital design I help companies around the world grow their business.”</h2>
+                        <p class="mt-2">- My Vision</p>
                     </div>
                 </div>
             </div>
@@ -175,8 +163,15 @@
             <div class="container-fluid">
                 {{-- MOBILE ONLY --}}
                 <section class="mobile-only">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center mb-2 mt-4">
+                            <div class="col-lg-10 col-md-10 col-12">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
                     @foreach ($dataExperiences as $data)
-                        <div class="row mb-4">
+                        <div class="row mb-2">
                             @if ($dataExperiences[0]->start == $data->start)
                                 <div class="col-6">
                                     <div class="d-flex align-items-center">
@@ -213,14 +208,14 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="row justify-content-end mb-4">
+                    <div class="row justify-content-end mb-2">
                         <div class="col-6"></div>
                         <div class="col-6">
                             <hr>
                         </div>
                     </div>
                     @foreach ($dataSkills as $data)
-                        <div class="row mb-4">
+                        <div class="row mb-2">
                             @if ($dataSkills[0]->names == $data->names)
                                 <div class="col-6">
                                     <div class="d-flex align-items-center">
@@ -245,19 +240,24 @@
                             @endif
                             <div class="col-6 exp-content">
                                 <div>
-                                    <h5>{{ $data->names }}</h5>
+                                    <div class="d-flex align-items-center">
+                                        <h5>{{ $data->names }}</h5>
+                                        @if ($data->crowns == 1)
+                                            <img class="ms-2" src="{{ asset('images/crown.svg') }}" alt="logo">
+                                        @endif
+                                    </div>
                                     <p class="mt-1">{{ $data->levels }}</p>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                    <div class="row justify-content-end mb-4">
+                    {{-- <div class="row justify-content-end mb-4">
                         <div class="col-6"></div>
                         <div class="col-6">
                             <hr>
                         </div>
-                    </div>
-                    @foreach ($dataEducations as $data)
+                    </div> --}}
+                    {{-- @foreach ($dataEducations as $data)
                         <div class="row mb-4">
                             @if ($dataEducations[0]->schools == $data->schools)
                                 <div class="col-6">
@@ -293,62 +293,67 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @endforeach --}}
                 </section>
                 {{-- END MOBILE ONLY --}}
-                @foreach ($dataExperiences as $data)
-                    <div class="row mb-5 non-mobile">
-                        <div class="col-lg-2 col-md-1"></div>
-                        @if ($dataExperiences[0]->start == $data->start)
-                            <div class="col-lg-3 col-md-3">
-                                <div class="d-flex align-items-center">
-                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_66_663)">
-                                            <path
-                                                d="M0.327262 4.90825C-0.109087 4.47191 -0.109088 3.76444 0.327261 3.3281L3.3281 0.327262C3.76444 -0.109087 4.47191 -0.109088 4.90825 0.327261L7.67274 3.09175C8.10909 3.52809 8.10909 4.23556 7.67274 4.6719L4.6719 7.67274C4.23556 8.10909 3.52809 8.10909 3.09175 7.67274L0.327262 4.90825Z"
-                                                fill="white" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_66_663">
-                                                <rect width="8" height="8" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <p class="text-white ms-1 title">Experience</p>
+                {{-- DESKTOP ONLY --}}
+                <section class="desktops-only" style="margin-top: 64px;">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-lg-10 col-md-10 col-12">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    @foreach ($dataExperiences as $data)
+                        <div class="row mb-5">
+                            <div class="col-lg-2 col-md-1"></div>
+                            @if ($dataExperiences[0]->start == $data->start)
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="d-flex align-items-center">
+                                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_66_663)">
+                                                <path
+                                                    d="M0.327262 4.90825C-0.109087 4.47191 -0.109088 3.76444 0.327261 3.3281L3.3281 0.327262C3.76444 -0.109087 4.47191 -0.109088 4.90825 0.327261L7.67274 3.09175C8.10909 3.52809 8.10909 4.23556 7.67274 4.6719L4.6719 7.67274C4.23556 8.10909 3.52809 8.10909 3.09175 7.67274L0.327262 4.90825Z"
+                                                    fill="white" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_66_663">
+                                                    <rect width="8" height="8" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p class="text-white ms-1 title">Experience</p>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="col-lg-3 col-md-3"></div>
+                            @endif
+                            <div class="col-lg-3 col-md-4 exp-content">
+                                <div>
+                                    <h5>{{ $data->position }}</h5>
+                                    <p class="mt-1">{{ $data->companies }}</p>
                                 </div>
                             </div>
-                        @else
-                            <div class="col-lg-3 col-md-3"></div>
-                        @endif
-                        <div class="col-lg-3 col-md-4 exp-content">
-                            <div>
-                                <h5>{{ $data->position }}</h5>
-                                <p class="mt-1">{{ $data->companies }}</p>
+                            <div class="col-lg-3 col-md-3 exp-content d-flex justify-content-end">
+                                @if ($data->end == 'Present')
+                                    <h5><span>{{ $data->start }} -</span> {{ $data->end }}</h5>
+                                @else
+                                    <h5><span>{{ $data->start }} - {{ $data->end }}</span></h5>
+                                @endif
                             </div>
+                            <div class="col-md-1"></div>
                         </div>
-                        <div class="col-lg-3 col-md-3 exp-content d-flex justify-content-end">
-                            @if ($data->end == 'Present')
-                                <h5><span>{{ $data->start }} -</span> {{ $data->end }}</h5>
-                            @else
-                                <h5><span>{{ $data->start }} - {{ $data->end }}</span></h5>
-                            @endif
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                @endforeach
-                {{-- HR --}}
-                <div class="row justify-content-end mb-5 non-mobile">
-                    <div class="col-lg-5 col-md-4"></div>
-                    <div class="col-lg-6 col-md-7">
-                        <hr>
-                    </div>
-                    <div class="col-lg-1 col-md-1"></div>
-                </div>
-                {{-- END HR --}}
-                {{-- DESKTOP ONLY --}}
-                <section class="desktops-only">
+                    @endforeach
                     <div class="row justify-content-end mb-5">
+                        <div class="col-lg-5 col-md-4"></div>
+                        <div class="col-lg-6 col-md-7">
+                            <hr>
+                        </div>
+                        <div class="col-lg-1 col-md-1"></div>
+                    </div>
+                    <div class="row justify-content-end">
                         <div class="col-lg-2 col-md-1"></div>
                         <div class="col-lg-3 col-md-3">
                             <div class="d-flex align-items-center">
@@ -372,7 +377,13 @@
                             <div class="row">
                                 @foreach ($dataSkills as $data)
                                     <div class="col-4 mb-5">
-                                        <h5>{{ $data->names }}</h5>
+                                        <div class="d-flex align-items-center">
+                                            <h5>{{ $data->names }}</h5>
+                                            @if ($data->crowns == 1)
+                                                <img class="ms-2" src="{{ asset('images/crown.svg') }}"
+                                                    alt="logo">
+                                            @endif
+                                        </div>
                                         <p class="mt-1">{{ $data->levels }}</p>
                                     </div>
                                 @endforeach
@@ -380,20 +391,66 @@
                         </div>
                         <div class="col-1"></div>
                     </div>
-                    {{-- HR --}}
-                    <div class="row justify-content-end mb-5">
-                        <div class="col-lg-5"></div>
-                        <div class="col-lg-6">
-                            <hr>
-                        </div>
-                        <div class="col-lg-1"></div>
-                    </div>
-                    {{-- END HR --}}
                 </section>
                 {{-- END DESKTOP ONLY --}}
                 {{-- TAB ONLY --}}
                 <section class="tablet-only">
-                    <div class="row mb-5">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center mb-4 mt-5">
+                            <div class="col-lg-10 col-md-10 col-12">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    @foreach ($dataExperiences as $data)
+                        <div class="row mb-4">
+                            <div class="col-lg-2 col-md-1"></div>
+                            @if ($dataExperiences[0]->start == $data->start)
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="d-flex align-items-center">
+                                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_66_663)">
+                                                <path
+                                                    d="M0.327262 4.90825C-0.109087 4.47191 -0.109088 3.76444 0.327261 3.3281L3.3281 0.327262C3.76444 -0.109087 4.47191 -0.109088 4.90825 0.327261L7.67274 3.09175C8.10909 3.52809 8.10909 4.23556 7.67274 4.6719L4.6719 7.67274C4.23556 8.10909 3.52809 8.10909 3.09175 7.67274L0.327262 4.90825Z"
+                                                    fill="white" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_66_663">
+                                                    <rect width="8" height="8" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p class="text-white ms-1 title">Experience</p>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="col-lg-3 col-md-3"></div>
+                            @endif
+                            <div class="col-lg-3 col-md-4 exp-content">
+                                <div>
+                                    <h5>{{ $data->position }}</h5>
+                                    <p class="mt-1">{{ $data->companies }}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 exp-content d-flex justify-content-end">
+                                @if ($data->end == 'Present')
+                                    <h5><span>{{ $data->start }} -</span> {{ $data->end }}</h5>
+                                @else
+                                    <h5><span>{{ $data->start }} - {{ $data->end }}</span></h5>
+                                @endif
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    @endforeach
+                    <div class="row justify-content-end mb-4">
+                        <div class="col-lg-5 col-md-4"></div>
+                        <div class="col-lg-6 col-md-7">
+                            <hr>
+                        </div>
+                        <div class="col-lg-1 col-md-1"></div>
+                    </div>
+                    <div class="row mb-3">
                         <div class="col-md-1"></div>
                         <div class="col-md-3">
                             <div class="d-flex align-items-center">
@@ -420,13 +477,25 @@
                                         $dataSkills[count($dataSkills) - 1]->names != $data->names &&
                                             $dataSkills[count($dataSkills) - 2]->names != $data->names)
                                         <div class="col-md-5 mb-5">
-                                            <h5>{{ $data->names }}</h5>
+                                            <div class="d-flex align-items-center">
+                                                <h5>{{ $data->names }}</h5>
+                                                @if ($data->crowns == 1)
+                                                    <img class="ms-2" src="{{ asset('images/crown.svg') }}"
+                                                        alt="logo">
+                                                @endif
+                                            </div>
                                             <p class="mt-1">{{ $data->levels }}</p>
                                         </div>
                                         <div class="col-md-1"></div>
                                     @else
                                         <div class="col-md-5">
-                                            <h5>{{ $data->names }}</h5>
+                                            <div class="d-flex align-items-center">
+                                                <h5>{{ $data->names }}</h5>
+                                                @if ($data->crowns == 1)
+                                                    <img class="ms-2" src="{{ asset('images/crown.svg') }}"
+                                                        alt="logo">
+                                                @endif
+                                            </div>
                                             <p class="mt-1">{{ $data->levels }}</p>
                                         </div>
                                         <div class="col-md-1"></div>
@@ -435,16 +504,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-end mb-5">
+                    {{-- <div class="row justify-content-end mb-3">
                         <div class="col-md-4"></div>
                         <div class="col-md-7">
                             <hr>
                         </div>
                         <div class="col-md-1"></div>
-                    </div>
+                    </div> --}}
                 </section>
                 {{-- END TAB ONLY --}}
-                @foreach ($dataEducations as $data)
+                {{-- @foreach ($dataEducations as $data)
                     <div class="row mb-5 non-mobile">
                         <div class="col-lg-2 col-md-1"></div>
                         @if ($dataEducations[0]->schools == $data->schools)
@@ -483,7 +552,7 @@
                             @endif
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
         </section>
         {{-- END EXPERIENCES --}}
         {{-- FOOTER --}}
@@ -518,7 +587,7 @@
                             </div>
                         </div>
                         <div class="col-lg-5 d-flex justify-content-end">
-                            <p>{{ $dataCopyright->copyright }}</p>
+                            <p>{{ $dataProfiles[0]->copyright }}</p>
                         </div>
                         <div class="col-1"></div>
                     </div>
@@ -541,7 +610,7 @@
                     <div class="row copyright-wrapper">
                         <div class="col-1"></div>
                         <div class="col-5">
-                            <p>{{ $dataCopyright->copyrights }}</p>
+                            <p>{{ $dataProfiles[0]->copyright }}</p>
                         </div>
                         <div class="col-1"></div>
                     </div>

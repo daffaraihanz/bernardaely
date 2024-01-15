@@ -123,11 +123,24 @@
                         </div>
                     </div>
                     <div class="row align-items-center mb-4">
-                        <div class="col-6">
+                        <div class="col-5">
                             <input name="names" value="{{ $data->names }}" type="text">
                         </div>
-                        <div class="col-6">
+                        <div class="col-5">
                             <input name="levels" value="{{ $data->levels }}" type="text">
+                        </div>
+                        <div class="col-2">
+                            @if ($data->crowns == 0)
+                                <a href="/updateCrownsDisabled/{{ $data->id }}"
+                                    class="crown crown-disabled align-items-center">
+                                    Icon Disabled
+                                </a>
+                            @else
+                                <a href="/updateCrownsActive/{{ $data->id }}"
+                                    class="crown crown-active align-items-center">
+                                    Icon Active
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </form>

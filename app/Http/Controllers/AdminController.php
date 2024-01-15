@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Skill;
 use App\Models\Social;
 use App\Models\Profile;
+use App\Models\Showcase;
 use App\Models\Education;
 use App\Models\Experience;
 use Illuminate\Http\Request;
@@ -33,6 +34,14 @@ class AdminController extends Controller
         $social->delete();
 
         return redirect('/socials');
+    }
+
+    public function destroyShowcase($id)
+    {
+        $showcase = Showcase::findOrFail($id);
+        $showcase->delete();
+
+        return redirect('/showcases');
     }
 
     public function destroyExperience($id)
@@ -85,6 +94,27 @@ class AdminController extends Controller
         $social->save();
 
         return redirect('/socials');
+    }
+
+    public function storeDataShowcase(Request $request)
+    {
+        $showcases = new Showcase();
+
+        if ($request->file('images')) {
+            $images_function = $request->file('images')->store('image', 'public');
+            $showcases->images = $images_function;
+        }
+
+        if ($request->file('powers')) {
+            $powers_function = $request->file('powers')->store('image', 'public');
+            $showcases->powers = $powers_function;
+        }
+
+        $showcases->names = $request->names;
+        $showcases->roles = $request->roles;
+        $showcases->save();
+
+        return redirect('/showcases');
     }
 
     public function updateImage(Request $request)
@@ -141,12 +171,51 @@ class AdminController extends Controller
         return redirect('/admin');
     }
 
+    public function updateDataShowcase(Request $request, $id)
+    {
+        $showcase = Showcase::findOrFail($id);
+
+        if ($request->file('images')) {
+            $images_function = $request->file('images')->store('image', 'public');
+            $showcase->images = $images_function;
+        }
+
+        if ($request->file('powers')) {
+            $powers_function = $request->file('powers')->store('image', 'public');
+            $showcase->powers = $powers_function;
+        }
+
+        $showcase->names = $request->names;
+        $showcase->roles = $request->roles;
+        $showcase->update();
+
+        return redirect('/showcases');
+    }
+
     public function updateDataSkill(Request $request, $id)
     {
         $skills = Skill::findOrFail($id);
         $skills->names = $request->names;
         $skills->levels = $request->levels;
         $skills->update();
+
+        return redirect('/experiences');
+    }
+
+    public function updateCrownDisabled($id)
+    {
+        $skill = Skill::findOrFail($id);
+        $skill->crowns = 1;
+        $skill->update();
+
+        return redirect('/experiences');
+    }
+
+    public function updateCrownActive($id)
+    {
+        $skill = Skill::findOrFail($id);
+        $skill->crowns = 0;
+        $skill->update();
 
         return redirect('/experiences');
     }
@@ -199,6 +268,12 @@ class AdminController extends Controller
         $profiles = Profile::first();
         // return view('/landing-page', ['dataProfiles' => $profiles, 'dataQuotes' => $quotes, 'dataSkills' => $skills, 'dataExperiences' => $experiences, 'dataSocials' => $socials, 'dataEducations' => $educations, 'dataCopyright' => $copyright]);
         return view('/profile', ['dataProfiles' => $profiles]);
+    }
+
+    public function getDatasShowcase()
+    {
+        $showcases = Showcase::orderBy('id', 'desc')->get();
+        return view('/showcases', ['dataShowcases' => $showcases]);
     }
 
     public function getDatas()

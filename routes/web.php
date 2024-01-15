@@ -19,6 +19,7 @@ Route::get('/', [LandingPageController::class, 'getDatas']);
 
 Route::get('/admin', [AdminController::class, 'getDatas']);
 
+Route::get('/showcases', [AdminController::class, 'getDatasShowcase']);
 Route::get('/profile', [AdminController::class, 'getDatasProfile']);
 Route::get('/experiences', [AdminController::class, 'getDatasExperiences']);
 Route::get('/socials', [AdminController::class, 'getDataSocial']);
@@ -26,14 +27,21 @@ Route::post('/storeDataExperience', [AdminController::class, 'storeDataExperienc
 Route::post('/storeDataSkill', [AdminController::class, 'storeDataSkill']);
 Route::post('/storeDataEdu', [AdminController::class, 'storeDataEdu']);
 Route::post('/storeDataSocial', [AdminController::class, 'storeDataSocial']);
+Route::post('/storeDataShowcase', [AdminController::class, 'storeDataShowcase']);
 Route::any('/destroyExperience/{id}', [AdminController::class, 'destroyExperience']);
 Route::any('/destroySkill/{id}', [AdminController::class, 'destroySkill']);
 Route::any('/destroyEdu/{id}', [AdminController::class, 'destroyEdu']);
 Route::any('/destroySocial/{id}', [AdminController::class, 'destroySocial']);
+Route::any('/destroyShowcase/{id}', [AdminController::class, 'destroyShowcase']);
 Route::any('/updateDataProfile', [AdminController::class, 'updateDataProfile']);
 Route::any('/updateDataExperience/{id}', [AdminController::class, 'updateDataExperience']);
 Route::any('/updateDataSkill/{id}', [AdminController::class, 'updateDataSkill']);
+Route::any('/updateDataShowcase/{id}', [AdminController::class, 'updateDataShowcase']);
 Route::any('/updateDataEducation/{id}', [AdminController::class, 'updateDataEducation']);
 Route::any('/updateSocial/{id}', [AdminController::class, 'updateDataSocial']);
 Route::any('/updateCopyright', [AdminController::class, 'updateCopyright']);
 Route::any('/updateImage', [AdminController::class, 'storeDataImage']);
+
+
+Route::any('/updateCrownsActive/{id}', [AdminController::class, 'updateCrownActive']);
+Route::any('/updateCrownsDisabled/{id}', [AdminController::class, 'updateCrownDisabled']);

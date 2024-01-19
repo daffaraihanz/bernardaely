@@ -14,7 +14,7 @@
                             alt="profile image">
                     </a>
                     <div class="d-flex align-items-center center-nav">
-                        <a class="nav-link" href="#">Works</a>
+                        <a class="nav-link wow bounceInUp" href="#">Works</a>
                         <a class="nav-link mx-4" href="#">About</a>
                         <a class="nav-link" href="#">Contacts</a>
                     </div>
@@ -74,19 +74,20 @@
                     <div class="col-lg-1 col-md-1"></div>
                     <div class="col-lg-10 col-md-10">
                         <div class="d-flex quote-wrapper">
-                            <h1 class="first-quote me-2">"</h1>
-                            <h1 class="quote-h1-wrapper">
-                                {{ $dataProfiles[0]->headline }}
-                                <span>"</span>
+                            <h1 class="first-quote me-0">"</h1>
+                            <h1 class="quote-h1-wrapper wow bounceInUp">
+                                {{ $dataProfiles[0]->headline }}<span>"</span>
                             </h1>
                         </div>
                         <div class="d-flex mt-4 profil-wrapper">
                             <h2 class="first-quote-opacity me-2">"</h2>
-                            <img class="me-3 img-fluid image-profile"
-                                src="{{ asset('storage/' . $dataProfiles[0]->image) }}" alt="profile image">
-                            <div>
-                                <h5 class="mb-1">{{ $dataProfiles[0]->name }}</h5>
-                                <p>{{ $dataProfiles[0]->region }}</p>
+                            <div class="d-flex align-items-center">
+                                <img class="me-3 img-fluid image-profile"
+                                    src="{{ asset('storage/' . $dataProfiles[0]->image) }}" alt="profile image">
+                                <div>
+                                    <h5 class="mb-1">{{ $dataProfiles[0]->name }}</h5>
+                                    <p>{{ $dataProfiles[0]->region }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

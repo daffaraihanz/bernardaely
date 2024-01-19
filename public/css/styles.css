@@ -7,53 +7,6 @@ a{
     text-decoration: none;
 }
 
-:root {
-    --black : #16191D;
-    --primary: #2C4F47;
-    --success: #04C09B;
-    --secondary: #B5D7CF;
-    --lightBlack : #98A2B3;
-    --gray : #98A2B3;
-    --white: #ffffff;
-    --quote : #458174;
-    --textSuccess : #8EC2B7;
-    --warning: #FEC84B;
-
-    --spacer1 : 4px;
-    --spacer2 : 6px;
-    --spacer3 : 8px;
-    --spacer4 : 12px;
-    --spacer5 : 14px;
-    --spacer5 : 16px;
-    --spacer6 : 18px;
-    --spacer7 : 20px;
-    --spacer8 : 24px;
-    --spacer9 : 28px;
-    --spacer10 : 32px;
-    --spacer11 : 40px;
-    --spacer12 : 50px;
-    --spacer13 : 100px;
-    --spacer14 : 195px;
-
-    --h1 : 58px;
-    --h2 : 40px;
-    --h3 : 32px;
-    --h4 : 26px;
-    --h5 :  24px;
-    --p: 18px;
-    --small: 16px;
-
-    --rounded0 : 15px ;
-    --rounded1 : 25px ;
-    --fullRounded : 15px ;
-
-    --regular : 400;
-    --medium : 500;
-    --semibold :600;
-    --bold : 700;
-    --extrabold: :800;
-}
-
 .desktops-only{
     display: block ;
 }
@@ -140,9 +93,9 @@ a{
 }
 
 .detail-admin .buttons-wrapper button{
-    background: var(--warning);
+    background: #FEC84B;
     padding: 12px 42px;
-    color: var(--black);
+    color: #16191D;
     border: none;
     border-radius: 4px;
     font-family: mediumType;
@@ -158,9 +111,9 @@ a{
 
 
 .detail-admin .buttons-wrapper .col-4:nth-child(1) button{
-    background: var(--black);
-    border: 1px solid var(--warning);
-    color: var(--warning);
+    background: #16191D;
+    border: 1px solid #FEC84B;
+    color: #FEC84B;
 }
 
 .detail-admin  .container {
@@ -168,7 +121,7 @@ a{
 }
 .detail-admin {
     font-family: regularType;
-    color: var(--white);
+    color: #ffffff;
     padding-top: 120px;
     padding-bottom: 120px;
 }
@@ -205,16 +158,16 @@ a{
 .admin .copyright input{
     outline: none;
     border-radius: 4px;
-    color: var(--black);
+    color: #16191D;
     padding-left: 20px;
-    background: var(--white);
+    background: #ffffff;
     width: 100%;
     border: none; 
     height: 55px;
 }
 
 .admin .copyright .input-wrapper{
-    background: var(--white);
+    background: #ffffff;
     border-radius: 4px;
 }
 
@@ -222,7 +175,7 @@ a{
     font-family: mediumType;
     margin-right: 4px;
     padding: 12px 32px;
-    background: var(--warning);
+    background: #FEC84B;
     font-size: 16px;
     border-radius: 4px;
     border: none;
@@ -235,7 +188,7 @@ a{
     background: #356056;
     flex-direction: column;
     font-family: regularType;
-    color: var(--white);
+    color: #ffffff;
     border: solid 1px #356056;
     transition: .3s;
 }
@@ -249,7 +202,7 @@ a{
 .admin .works .works-wrapper p {
    margin-top: 4px;
     font-family: regularType;
-    color: var(--secondary);
+    color: #B5D7CF;
 }
 
 /* RESPONSIVE */
@@ -302,7 +255,7 @@ a{
 
     .second .copyright-wrapper p{
         margin-top: 80px;
-        color: var(--gray);
+        color: #98A2B3;
     }
 
     /* EXP */
@@ -343,7 +296,7 @@ a{
     /* WORKS */
 
     .first .works .title p{
-        font-size: var(--spacer5);
+        font-size: 14px;
         font-size: 12px !important;
     }
 
@@ -454,7 +407,7 @@ a{
     /* WORKS */
 
     .first .works .title p{
-        font-size: var(--spacer5);
+        font-size: 14px;
         font-size: 14px;
     }
 
@@ -536,45 +489,54 @@ a{
     color: white;
 }
 
+.second .footer .copyright-wrapper p{
+    font-family: regularType;
+    color: #98a2b3;
+}
+
 .second .footer hr{
-    color: var(--gray);
+    color: #98A2B3;
     margin-bottom: 120px;
 }
 .second .footer h2{
     font-family: regularType;
     font-size: 44px;
-    color: var(--white);
+    color: #ffffff;
+}
+
+.second .footer a{
+    font-family: regularType;
 }
 
 .second .footer button{
     margin-left: 16px;
     font-family: mediumType;
-    background: var(--warning);
+    background: #FEC84B;
     font-size: 14px;
     padding: 6px 12px;
-    color: var(--black);
+    color: #16191D;
     border-radius: 4px;
 }
 
 /* EXP */
 .second .exp hr{
-    color: var(--gray);
+    color: #98A2B3;
 }
 
 .exp .exp-content h5{
-    color: var(--white);
+    color: #ffffff;
     font-size: 18px;
     font-family: regularType;
 }
 
 .exp .exp-content p{
     font-size: 14px;
-    color: var(--gray);
+    color: #98A2B3;
     font-family: regularType;
 }
 
 .exp .exp-content span{
-    color: var(--gray);
+    color: #98A2B3;
 }
 
 
@@ -582,33 +544,33 @@ a{
 /* QUOTE */
 .second{
     transition: .5s;
-    background:var(--black) ;
+    background:#16191D ;
     padding-top: 120px;
     padding-bottom: 72px;
 }
 
 .second .quote hr{
-    color: var(--gray);
+    color: #98A2B3;
 }
 
 .second .quote h2{
-    color: var(--white);
+    color: #ffffff;
     font-size: 32px;
     font-family: regularType;
 }
 
 .second .quote p{
-    color: var(--gray);
+    color: #98A2B3;
     font-size: 14px;
     font-family: regularType;
 }
 
 .second .quote h2 .span1{
-    color: var(--warning);
+    color: #FEC84B;
 }
 
 .second .quote h2 .span2{
-    color: var(--lightBlack);
+    color: #98A2B3;
 }
 
 /* WORKS */
@@ -636,12 +598,12 @@ a{
     font-size: 18px;
     font-family: regularType;
     margin-top: 10px;
-    color: var(--white);
+    color: #ffffff;
 }
 
 .first .works .works-wrapper h5{
     font-size: 14px;
-    color: var(--white);
+    color: #ffffff;
     font-family: regularType;
     margin: 2px 0 6px 0 ;
     letter-spacing: 0.196px;
@@ -649,7 +611,7 @@ a{
 
 .first .works .works-wrapper p{
     font-size: 14px;
-    color: var(--textSuccess);
+    color: #8EC2B7;
     font-family: regularType;
 }
 
@@ -659,9 +621,9 @@ a{
 }
 
 .first .works .title p{
-    color: var(--white);
+    color: #ffffff;
     font-family: regularType;
-    font-size: var(--spacer5);
+    font-size: 14px;
 }
 
 .first .works{
@@ -677,13 +639,13 @@ a{
 
 .first .profile .quote-wrapper .first-quote{
     font-family: regularType;
-    color: var(--quote);
+    color: #458174;
 }
 
 
 .first .profile .quote-wrapper span{
     font-family: regularType;
-    color: var(--quote);
+    color: #458174;
 }
 
 .first .profile .first-quote-opacity{
@@ -702,21 +664,21 @@ a{
 }
 
 .first .profile .profil-wrapper h5{
-    color: var(--white);
+    color: #ffffff;
     font-family: regularType;
     font-size: 18px;
-    font-weight: var(--spacer6);
+    font-weight: 18px;
 }
 
 .first .profile .profil-wrapper p {
-    color: var(--secondary);
+    color: #B5D7CF;
     font-family: regularType;
     font-size: 14px;
-    font-weight: var(--spacer5);
+    font-weight: 14px;
 }
 
 .first{
-    background: var(--primary);
+    background: #2C4F47;
     transition: .5s;
     padding-bottom: 80px;
     padding-top: 16px;
@@ -724,7 +686,7 @@ a{
 
 .first .profile h1{
     margin-top: 300px;
-    color: var(--white);
+    color: #ffffff;
     font-family: regularType;
     font-size: 44px;
     line-height: 56px;
@@ -746,19 +708,19 @@ a{
 .navigation a{
     font-family: lightType;
     font-size: 14px;
-    color: var(--secondary);
+    color: #B5D7CF;
     transition: 0s;
 }
 
 .navigation a:hover{
-    color: var(--white);
+    color: #ffffff;
     transition: 0s;
 }
 
 .navigation button{
     font-family: mediumType;
-    background: var(--warning);
-    font-size: var(--spacer5);
+    background: #FEC84B;
+    font-size: 14px;
 }
 
 .navigation{
